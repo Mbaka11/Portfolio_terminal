@@ -14,11 +14,78 @@
   display: inline-block;
   vertical-align: middle;
   color: #f0c674;
+  text-decoration: none;
 }
 
 .description {
-  margin-left: 2em; /* Add some space between the icon and the text */
+  display: inline-block;
+  vertical-align: middle;
   font-size: 1em;
   color: #959595;
   margin-left: 10px;
+}
+
+.container {
+  text-align: center;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+.userInfo {
+  display: grid;
+}
+
+.userInfo strong {
+  font-size: 3em;
+}
+
+.userInfo a {
+  color: #5f819d;
+  text-decoration: none;
+  margin-bottom: 0.9em;
+}
+
+.loader {
+  display: block;
+  --height-of-loader: 4px;
+  --loader-color: #0071e2;
+  width: 100%;
+  height: var(--height-of-loader);
+  border-radius: 30px;
+  background-color: rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.loader::before {
+  content: "";
+  position: absolute;
+  background: var(--loader-color);
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  border-radius: 30px;
+  animation: moving 4s ease-in-out infinite;
+}
+
+@keyframes moving {
+  50% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0;
+    right: 0;
+    left: unset;
+  }
+}
+
+.upfront {
+  color: #f0c674;
 }

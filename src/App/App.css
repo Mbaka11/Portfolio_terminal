@@ -1,33 +1,49 @@
 .App {
   background-color: #333;
-  color: white;
+  color: #c5c8c6;
   height: 100vh;
   padding: 1rem;
   box-sizing: border-box;
-}
-
-.centered-container {
-  display: grid;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Consolas";
 }
 
 input {
+  font-family: "Consolas";
+}
+
+.centered-container {
   border: solid 1px white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  flex: 1;
+}
+
+input {
+  border: none;
   outline: none;
   margin: 0;
   padding: 10px;
   background-color: transparent;
-  color: white;
+  color: #c5c8c6;
   width: 100%;
   font-size: large;
 }
 
 .terminal {
-  border: solid 1px white;
+  /* border: solid 1px white; */
   white-space: pre-line;
   font-size: large;
+  max-height: 70%;
+  overflow-y: auto;
+  width: 70%;
+  max-width: 70%;
+  padding-right: 15px;
+  flex-direction: column-reverse;
 }
 
 #terminal-name {
@@ -37,4 +53,36 @@ input {
 p {
   margin: 0;
   padding: 0;
+}
+
+#input-container {
+  /* border: solid 1px white; */
+  font-size: large;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  width: 70%;
+  margin-top: -8px;
+  padding-right: 15px;
+}
+
+#input-container span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 0 0 auto;
+}
+
+#input-container input {
+  flex: 1;
+  min-width: 0;
+  width: 30vw;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #373b41;
 }

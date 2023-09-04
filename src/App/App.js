@@ -1,6 +1,6 @@
 import "./App.css";
 import { useState, useEffect, useRef } from "react";
-import { manageCommands } from "../CommandManager/commandManager.tsx";
+import ManageCommands from "../CommandManager/commandManager.tsx";
 
 function App() {
   const [input, setInput] = useState("");
@@ -11,6 +11,16 @@ function App() {
   useEffect(() => {
     inputRef.current.focus();
   }, []);
+
+  const scrollToBottom = () => {
+    const terminal = document.getElementById("terminal");
+    terminal.scrollTop = terminal.scrollHeight;
+  };
+
+  useEffect(() => {
+    // Scroll to the bottom whenever the output changes
+    scrollToBottom();
+  }, [output]);
 
   const handleEnterKey = () => {
     if (input.trim() === "") {
@@ -23,10 +33,10 @@ function App() {
         ...output,
         <div key={output.length}>
           <p>
-            <span id="terminal-name">{"Mbaka~ >> "}</span>
+            <span id="terminal-name">{"Mbaka ~ >> "}</span>
             {input}
           </p>
-          {manageCommands(input)}
+          <ManageCommands input={input} />
         </div>,
       ];
 
@@ -52,19 +62,24 @@ function App() {
       }}
     >
       <div className="centered-container">
-        <div className="terminal">{output}</div>
-        <input
-          ref={inputRef}
-          type="text"
-          value={input}
-          placeholder="type 'help' for a list of commands"
-          onChange={handlePromptVisibility}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              handleEnterKey();
-            }
-          }}
-        />
+        <div className="terminal" id="terminal">
+          {output}
+        </div>
+        <div id="input-container">
+          <span id="terminal-name">{"Mbaka ~ >> "}</span>
+          <input
+            ref={inputRef}
+            type="text"
+            value={input}
+            placeholder="type 'help' for a list of commands"
+            onChange={handlePromptVisibility}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleEnterKey();
+              }
+            }}
+          />
+        </div>
       </div>
     </div>
   );
