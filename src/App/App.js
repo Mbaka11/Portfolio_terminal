@@ -61,6 +61,16 @@ function App() {
         inputRef.current.focus();
       }}
     >
+      <div class="DivClass">
+        <span class="MatrixTextEffect">
+          {" "}
+          <h1 className="matrix-effect">
+            Marsel's <br></br>
+            <span>Portofolio</span>
+          </h1>
+        </span>
+      </div>
+
       <div className="centered-container">
         <div className="terminal" id="terminal">
           {output}
