@@ -66,7 +66,7 @@ function App() {
           {" "}
           <h1 className="matrix-effect">
             Marsel's <br></br>
-            <span>Portofolio</span>
+            <span>Portfolio</span>
           </h1>
         </span>
       </div>
